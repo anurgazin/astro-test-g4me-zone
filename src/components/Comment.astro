@@ -1,49 +1,47 @@
 ---
 import type { Comment } from "../../interfaces";
 
-interface Props{
-    comment: Comment
+interface Props {
+  comment: Comment;
 }
 
-const {comment} = Astro.props;
+const { comment } = Astro.props;
 const date = new Date(comment.date);
 ---
 
 <li class="comment">
-    <h2 class="comment-author">
-        {comment.author}
-    </h2>
-    <h3 class="comment-date">
-        {date.toLocaleString()}
-    </h3>
-    <p class="comment-text">
-        {comment.text}
-    </p>
+  <h2 class="comment-author">
+    {comment.author}
+  </h2>
+  <h3 class="comment-date">
+    {date.toLocaleString()}
+  </h3>
+  <p class="comment-text">
+    {comment.text}
+  </p>
 </li>
 
 <style>
-    .comment {
-        list-style-type: none;
-        padding: 10px;
-        margin-bottom: 10px;
-        overflow-wrap: break-word;
-    }
+  .comment {
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow-wrap: break-word;
+  }
 
-    .comment-author {
-        margin-bottom: 5px;
-        font-weight: bold;
-        font-size: 1.0rem;
-    }
+  .comment-author {
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+  }
 
-    .comment-date {
-        margin-bottom: 10px;
-        color: #888;
-        font-size: 0.9rem;
-    }
+  .comment-date {
+    margin-bottom: 10px;
+    color: #888;
+    font-size: 0.9rem;
+  }
 
-    .comment-text {
-        margin-bottom: 0;
-        font-size: 0.9rem;
-    }
+  .comment-text {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+  }
 </style>
-

@@ -1,87 +1,91 @@
 ---
-import { Image } from 'astro:assets';
-import type { Article } from '../../interfaces';
+import { Image } from "astro:assets";
+import type { Article } from "../../interfaces";
 
 interface Props {
-	article: Article
+  article: Article;
 }
 
-const {	article } = Astro.props;
+const { article } = Astro.props;
 const release = new Date(article.release_date);
 ---
 
 <li class="link-card">
-	<a href=`/articles/${article._id}`>
-		<div class="link-card-header">
-			<Image class="link-card-image" src={article.image} alt={article.title} width={300} height={150} />
-			<h2>
-				{article.title}
-				<span>&rarr;</span>
-			</h2>
-			<p>
-				Rating: {article.rating} / 5
-			</p>
-			<p>
-				Release Date: {release.toLocaleDateString()}
-			</p>
-			<p>
-				Genre: {article.genre}
-			</p>
-		</div>
-		<div class="link-card-body">
-			<p>
-				{article.text.slice(0, 500)}...
-			</p>
-		</div>
-	</a>
+  <a href=`/articles/${article._id}`>
+    <div class="link-card-header">
+      <Image
+        class="link-card-image"
+        src={article.image}
+        alt={article.title}
+        width={300}
+        height={150}
+      />
+      <h2>
+        {article.title}
+        <span>&rarr;</span>
+      </h2>
+      <p>
+        Rating: {article.rating} / 5
+      </p>
+      <p>
+        Release Date: {release.toLocaleDateString()}
+      </p>
+      <p>
+        Genre: {article.genre}
+      </p>
+    </div>
+    <div class="link-card-body">
+      <p>
+        {article.text.slice(0, 500)}...
+      </p>
+    </div>
+  </a>
 </li>
 <style>
-    .link-card {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        padding: 5px;
-        background-color: #23262d;
-        background-image: none;
-        background-size: 400%;
-        border-radius: 7px;
-        background-position: 100%;
-        transition: background-position 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
-    }
-	a{
-		text-decoration: none;
-	}
-    h2 {
-        margin: 0;
-        font-size: 1.25rem;
-        transition: color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        color: #ffffff;
-    }
-    p {
-        margin-top: 0.5rem;
-        margin-bottom: 0;
-        color: #ccc;
-    }
-    .link-card-header p {
-        font-size: 1.05rem;
-    }
-    .link-card-body p {
-        border: 1px solid #999;
-        padding: 5px;
-        font-size: 0.85rem;
-		white-space: pre-line;
-    }
-    .link-card:is(:hover, :focus-within) {
-        background-position: 0;
-        background-image: var(--accent-gradient);
-    }
-    .link-card:is(:hover, :focus-within) h2 {
-        color: #ffffff;
-    }
-    :root {
-        --accent-light: 20, 20, 20;
-    }
+  .link-card {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    background-color: #23262d;
+    background-image: none;
+    background-size: 400%;
+    border-radius: 7px;
+    background-position: 100%;
+    transition: background-position 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  a {
+    text-decoration: none;
+  }
+  h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    transition: color 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    color: #ffffff;
+  }
+  p {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    color: #ccc;
+  }
+  .link-card-header p {
+    font-size: 1.05rem;
+  }
+  .link-card-body p {
+    border: 1px solid #999;
+    padding: 5px;
+    font-size: 0.85rem;
+    white-space: pre-line;
+  }
+  .link-card:is(:hover, :focus-within) {
+    background-position: 0;
+    background-image: var(--accent-gradient);
+  }
+  .link-card:is(:hover, :focus-within) h2 {
+    color: #ffffff;
+  }
+  :root {
+    --accent-light: 20, 20, 20;
+  }
 </style>
-
-

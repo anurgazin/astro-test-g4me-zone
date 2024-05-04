@@ -1,0 +1,5 @@
+# Run Prettier
+npx prettier --write .
+
+# Add any changes made by Prettier to the commit
+git add .

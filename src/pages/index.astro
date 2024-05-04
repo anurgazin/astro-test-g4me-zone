@@ -1,40 +1,38 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import type { Article } from '../../interfaces';
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import type { Article } from "../../interfaces";
 
-const response = await fetch(import.meta.env.PUBLIC_API_URL+"articles");
+const response = await fetch(import.meta.env.PUBLIC_API_URL + "articles");
 const data = await response.json();
 const articles: Article[] = data.data;
 ---
 
 <Layout title="Astro Test">
-	<main>
-		<ul role="list" class="link-card-grid">
-			{articles.map((article)=>
-				<Card  article={article}/>
-			)}
-		</ul>
-	</main>
+  <main>
+    <ul role="list" class="link-card-grid">
+      {articles.map((article) => <Card article={article} />)}
+    </ul>
+  </main>
 </Layout>
 
 <style>
-	main {
-		margin: auto;
-		padding: 1rem;
-		width: 800px;
-		max-width: calc(100% - 2rem);
-		color: white;
-		font-size: 20px;
-		line-height: 1.6;
-    	display: flex;
-    	justify-content: center;
-    	align-items: center;
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 2rem;
-		padding: 0;
-	}
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 0;
+  }
 </style>
