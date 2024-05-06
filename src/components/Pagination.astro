@@ -1,0 +1,42 @@
+---
+// component imports
+const { prevUrl, nextUrl } = Astro.props;
+---
+
+<nav class="pagination" aria-label="Blog pages">
+  {
+    prevUrl && (
+      <a href={prevUrl} class="pagination-link">
+        Prev
+      </a>
+    )
+  }
+  {
+    nextUrl && (
+      <a href={nextUrl} class="pagination-link">
+        Next
+      </a>
+    )
+  }
+</nav>
+
+<style>
+  .pagination {
+    display: flex;
+    align-items: center;
+  }
+
+  .pagination-link {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    color: var(--matrix-green);
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .pagination-link:hover {
+    background-color: #388e3c;
+  }
+</style>

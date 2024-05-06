@@ -1,73 +1,43 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import type { Article } from "../../interfaces";
-
-const response = await fetch(import.meta.env.PUBLIC_API_URL + "articles");
-const data = await response.json();
-const articles: Article[] = data.data;
 ---
 
-<Layout title="Astro Test">
+<Layout title="G4ME_Z0NE(Astro Js)">
   <main>
-    <ul role="list" class="link-card-grid">
-      {articles.map((article) => <Card article={article} />)}
-    </ul>
+    <h1>Welcome to the G4ME_Z0NE(Astro Js)!</h1>
+    <p>
+      Dive into the exciting world of video games with our comprehensive game
+      review blog. Whether you're a passionate gamer seeking in-depth analyses
+      or a casual player looking for recommendations, we've got you covered. Our
+      expert team of gamers explores the latest releases across all platforms,
+      from blockbuster AAA titles to indie gems, delivering honest and
+      insightful reviews that help you make informed decisions. With a focus on
+      quality content, engaging discussions, and a vibrant community of fellow
+      gamers, G4ME_Z0NE is your go-to hub for discovering, discussing, and
+      celebrating the captivating world of gaming. Join us on this thrilling
+      journey and level up your gaming experience today!
+    </p>
+    <p>(go to Feed)</p>
   </main>
 </Layout>
 
 <style>
   main {
     margin: auto;
-    padding: 1rem;
-    width: 100%;
-    max-width: 800px; /* Adjusted max-width */
+    padding: 2rem;
+    max-width: 800px;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    color: var(--matrix-green);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
     color: white;
-    font-size: 20px;
     line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(250px, 1fr)
-    ); /* Adjusted grid-template-columns */
-    gap: 2rem;
-    padding: 0;
-    justify-content: center; /* Center align grid items */
-  }
-
-  /* Media query for smaller screens */
-  @media screen and (max-width: 600px) {
-    .link-card-grid {
-      grid-template-columns: repeat(
-        1,
-        1fr
-      ); /* Display one card per row on smaller screens */
-    }
-  }
-
-  /* Media query for medium-sized screens */
-  @media screen and (min-width: 601px) and (max-width: 900px) {
-    .link-card-grid {
-      grid-template-columns: repeat(
-        2,
-        1fr
-      ); /* Display two cards per row on medium-sized screens */
-    }
-  }
-
-  /* Media query for larger screens */
-  @media screen and (min-width: 901px) {
-    .link-card-grid {
-      grid-template-columns: repeat(
-        3,
-        1fr
-      ); /* Display three cards per row on larger screens */
-    }
   }
 </style>

@@ -7,7 +7,7 @@ import {
   I as IncompatibleDescriptorOptions,
   a as UnsupportedImageConversion,
   b as MissingSharp,
-} from "../astro_B99kgnnP.mjs";
+} from "../astro_Bg-F9f7K.mjs";
 
 function appendForwardSlash(path) {
   return path.endsWith("/") ? path : path + "/";

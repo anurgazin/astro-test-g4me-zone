@@ -17,7 +17,7 @@ const comments = await fetch(
 ---
 
 <Layout title={article.title}>
-  <Back />
+  <Back link="/feed" pageTitle="feed" />
   <main>
     <div class="article-header">
       <Image
@@ -73,6 +73,13 @@ const comments = await fetch(
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .article-header h2 {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.5rem;
+    margin: 0;
   }
   .article-header p {
     font-size: 0.9rem;

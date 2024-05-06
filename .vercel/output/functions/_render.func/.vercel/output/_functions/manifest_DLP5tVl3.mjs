@@ -2,7 +2,7 @@ import "cookie";
 import { bold, red, yellow, dim, blue } from "kleur/colors";
 import "html-escaper";
 import "clsx";
-import "./chunks/astro_B99kgnnP.mjs";
+import "./chunks/astro_Bg-F9f7K.mjs";
 import { compile } from "path-to-regexp";
 
 const dateTimeFormat = new Intl.DateTimeFormat([], {
@@ -269,7 +269,7 @@ const manifest = deserializeManifest({
         {
           type: "inline",
           content:
-            ".back-link[data-astro-cid-g5kbnxd7]{margin-top:20px;text-decoration:none;color:#fff;font-size:16px;padding:10px 20px;transition:background-color .1s ease}.back-link[data-astro-cid-g5kbnxd7]:hover{color:#838282}.comment[data-astro-cid-ksttp56e]{padding:10px;margin-bottom:10px;overflow-wrap:break-word}.comment-author[data-astro-cid-ksttp56e]{margin-bottom:5px;font-weight:700;font-size:1rem}.comment-date[data-astro-cid-ksttp56e]{margin-bottom:10px;color:#888;font-size:.9rem}.comment-text[data-astro-cid-ksttp56e]{margin-bottom:0;font-size:.9rem}main[data-astro-cid-dpxbdw67]{margin:auto;padding:1rem;width:800px;max-width:calc(100% - 2rem);color:#fff;font-size:20px;line-height:1.6;display:flex;flex-direction:column;justify-content:center;align-items:center}.article-header[data-astro-cid-dpxbdw67] p[data-astro-cid-dpxbdw67]{font-size:.9rem}.article-body[data-astro-cid-dpxbdw67]{border:1px solid #999;white-space:pre-line;padding:15px;font-size:1rem}.article-comment-grid[data-astro-cid-dpxbdw67]{padding:1rem;display:flex;flex-direction:column;border:1px solid #ccc;border-radius:5px;list-style-type:none}\n:root{--accent: 18, 16, 14;--accent-light: 43, 65, 98;--accent-dark: 49, 10, 101;--accent-gradient: linear-gradient( 90deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60% )}html{font-family:system-ui,sans-serif;background:#13151a;background-size:224px}code{font-family:Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace}\n",
+            '.back-link[data-astro-cid-g5kbnxd7]{margin-top:20px;text-decoration:none;color:#fff;font-size:16px;padding:10px 20px;transition:background-color .1s ease}.back-link[data-astro-cid-g5kbnxd7]:hover{color:#838282}.comment[data-astro-cid-ksttp56e]{padding:10px;margin-bottom:10px;overflow-wrap:break-word}.comment-author[data-astro-cid-ksttp56e]{margin-bottom:5px;font-weight:700;font-size:1rem}.comment-date[data-astro-cid-ksttp56e]{margin-bottom:10px;color:#888;font-size:.9rem}.comment-text[data-astro-cid-ksttp56e]{margin-bottom:0;font-size:.9rem}main[data-astro-cid-dpxbdw67]{margin:auto;padding:1rem;width:800px;max-width:calc(100% - 2rem);color:#fff;font-size:20px;line-height:1.6;display:flex;flex-direction:column;justify-content:center;align-items:center}.article-header[data-astro-cid-dpxbdw67] h2[data-astro-cid-dpxbdw67]{font-family:"Jersey 10",sans-serif;font-weight:400;font-style:normal;font-size:2.5rem;margin:0}.article-header[data-astro-cid-dpxbdw67] p[data-astro-cid-dpxbdw67]{font-size:.9rem}.article-body[data-astro-cid-dpxbdw67]{border:1px solid #999;white-space:pre-line;padding:15px;font-size:1rem}.article-comment-grid[data-astro-cid-dpxbdw67]{padding:1rem;display:flex;flex-direction:column;border:1px solid #ccc;border-radius:5px;list-style-type:none}\n@import"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+10&display=swap";.navbar[data-astro-cid-5blmo7yk]{background-color:rgb(var(--accent));padding:1rem}.navbar-nav[data-astro-cid-5blmo7yk]{list-style-type:none;margin:0;padding:0;display:flex;justify-content:space-between;align-items:center}.nav-logo[data-astro-cid-5blmo7yk]{font-family:"Jersey 10",sans-serif;font-weight:400;font-style:normal;font-size:40px;letter-spacing:2px;color:var(--matrix-green)}.nav-menu[data-astro-cid-5blmo7yk]{display:flex;justify-content:space-between;font-family:IBM Plex Mono,monospace;font-weight:400;font-style:normal}.nav-item[data-astro-cid-5blmo7yk]{margin-right:1rem}.nav-link[data-astro-cid-5blmo7yk]{text-decoration:none;color:var(--matrix-green)}.nav-link[data-astro-cid-5blmo7yk]:hover{text-decoration:underline}:root{--matrix-green: #00ff41;--accent: 18, 16, 14;--accent-light: 43, 65, 98;--accent-dark: 49, 10, 101;--accent-gradient: linear-gradient( 90deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60% )}html{font-family:system-ui,sans-serif;background:#13151a;background-size:224px}code{font-family:Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace}\n',
         },
       ],
       routeData: {
@@ -295,6 +295,10 @@ const manifest = deserializeManifest({
   componentMetadata: [
     [
       "C:/Users/Aldiyar Nurgazin/astro-test/exotic-ephemera/src/pages/articles/[id].astro",
+      { propagation: "none", containsHead: true },
+    ],
+    [
+      "C:/Users/Aldiyar Nurgazin/astro-test/exotic-ephemera/src/pages/feed/[...page].astro",
       { propagation: "none", containsHead: true },
     ],
     [
@@ -330,14 +334,15 @@ const manifest = deserializeManifest({
     "\u0000@astro-renderers": "renderers.mjs",
     "\u0000noop-middleware": "_noop-middleware.mjs",
     "/node_modules/astro/dist/assets/endpoint/generic.js":
-      "chunks/pages/generic_CeUqf557.mjs",
-    "/src/pages/index.astro": "chunks/prerender_D-NANbzi.mjs",
-    "\u0000@astrojs-manifest": "manifest_m1SSGvdx.mjs",
+      "chunks/pages/generic_B89Gdefd.mjs",
+    "\u0000@astrojs-manifest": "manifest_DLP5tVl3.mjs",
     "\u0000@astro-page:node_modules/astro/dist/assets/endpoint/generic@_@js":
-      "chunks/generic_CRJdldN3.mjs",
+      "chunks/generic_BXT2u0sv.mjs",
     "\u0000@astro-page:src/pages/articles/[id]@_@astro":
-      "chunks/_id__b_qrDUzP.mjs",
-    "\u0000@astro-page:src/pages/index@_@astro": "chunks/index_AAzSF4gw.mjs",
+      "chunks/_id__Bv0GAZp1.mjs",
+    "\u0000@astro-page:src/pages/feed/[...page]@_@astro":
+      "chunks/_.._BLD8tw6s.mjs",
+    "\u0000@astro-page:src/pages/index@_@astro": "chunks/index_xC1VvuYU.mjs",
     "astro:scripts/before-hydration.js": "",
   },
   inlinedScripts: [],

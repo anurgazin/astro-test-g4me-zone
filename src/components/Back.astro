@@ -1,23 +1,27 @@
 ---
-
+interface Props {
+  link: string;
+  pageTitle: string;
+}
+const { link, pageTitle } = Astro.props;
 ---
 
-<a href="/" class="back-link">
+<a href={link} class="back-link">
   <span>&larr;</span>
-  Back to main page
+  Back to {pageTitle} page
 </a>
 
 <style>
   .back-link {
-    margin-top: 20px; /* Add margin to separate from article content */
-    text-decoration: none; /* Remove underline */
-    color: #ffffff; /* Text color */
-    font-size: 16px; /* Font size */
-    padding: 10px 20px; /* Padding */
-    transition: background-color 0.1s ease; /* Smooth transition */
+    margin-top: 20px;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.1s ease;
   }
 
   .back-link:hover {
-    color: #838282; /* Darker background color on hover */
+    color: #838282;
   }
 </style>
