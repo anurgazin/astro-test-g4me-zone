@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import Back from "../../components/Back.astro";
+import Comment from "../../components/Comment.astro";
+import Layout from "../../layouts/Layout.astro";
+import type { Comment as CommentType } from "../../../interfaces";
+export const prerender = false;
+const { id } = Astro.params;
+
+const response = await fetch(import.meta.env.PUBLIC_API_URL + "article/" + id);
+const data = await response.json();
+const article = data.data;
+const release = new Date(article.release_date);
+const comments = await fetch(
+  import.meta.env.PUBLIC_API_URL + "comments/" + id,
+).then((r) => r.json());
+---
+
+<Layout title={article.title}>
+  <Back />
+  <main>
+    <div class="article-header">
+      <Image
+        class="article-image"
+        src={article.image}
+        alt={article.title}
+        width={800}
+        height={400}
+      />
+      <h2>
+        {article.title}
+      </h2>
+      <p>
+        Rating: {article.rating} / 5
+      </p>
+      <p>
+        Release Date: {release.toLocaleDateString()}
+      </p>
+      <p>
+        Genre: {article.genre}
+      </p>
+    </div>
+    <div class="article-body">
+      <p>
+        {article.text}
+      </p>
+      <p>Review Written By: {article.author}</p>
+    </div>
+    <ul role="list" class="article-comment-grid">
+      {
+        comments.data.length > 0 ? (
+          comments.data.map((comment: CommentType) => (
+            <Comment comment={comment} />
+          ))
+        ) : (
+          <li>No comments Yet</li>
+        )
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .article-header p {
+    font-size: 0.9rem;
+  }
+
+  .article-body {
+    border: 1px solid #999;
+    white-space: pre-line;
+    padding: 15px;
+    font-size: 1rem;
+  }
+
+  .article-comment-grid {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    list-style-type: none;
+  }
+</style>
