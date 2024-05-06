@@ -1,0 +1,71 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import Pagination from "../../components/Pagination.astro";
+import type { Article, Page } from "../../../interfaces";
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+  const response = await fetch(import.meta.env.PUBLIC_API_URL + "articles");
+  const data = await response.json();
+  const articles: Article[] = data.data;
+
+  return paginate(articles, {
+    pageSize: 9,
+  });
+}
+const { page }: { page: Page } = Astro.props;
+---
+
+<Layout title="Feed">
+  <main>
+    <ul role="list" class="link-card-grid">
+      {page.data.map((article) => <Card article={article} />)}
+    </ul>
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 100%;
+    max-width: 800px; /* Adjusted max-width */
+    color: white;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0;
+    justify-content: center;
+  }
+
+  /* Media query for small screens */
+  @media screen and (max-width: 600px) {
+    .link-card-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  /* Media query for medium screens */
+  @media screen and (min-width: 601px) and (max-width: 900px) {
+    .link-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Media query for larg screens */
+  @media screen and (min-width: 901px) {
+    .link-card-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

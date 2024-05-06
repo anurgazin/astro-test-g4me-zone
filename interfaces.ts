@@ -17,3 +17,18 @@ export interface Comment {
   author: string;
   date: Date;
 }
+
+export interface Page {
+  data: Article[];
+  start: number;
+  end: number;
+  size: number;
+  total: number;
+  currentPage: number;
+  lastPage: number;
+  url: {
+    current: string;
+    next: string;
+    prev: string;
+  };
+}

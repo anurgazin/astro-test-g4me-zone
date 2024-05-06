@@ -6,9 +6,66 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content="Astro v4.7.1" />
-    <title>Astro Test</title>
+    <title>G4ME_Z0NE(Astro Js)</title>
     <style>
+      main[data-astro-cid-j7pv25f6] {
+        margin: auto;
+        padding: 2rem;
+        max-width: 800px;
+        text-align: center;
+      }
+      h1[data-astro-cid-j7pv25f6] {
+        font-size: 2.5rem;
+        color: var(--matrix-green);
+        margin-bottom: 1rem;
+      }
+      p[data-astro-cid-j7pv25f6] {
+        font-size: 1.1rem;
+        color: #fff;
+        line-height: 1.6;
+      }
+      @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+10&display=swap";
+      .navbar[data-astro-cid-5blmo7yk] {
+        background-color: rgb(var(--accent));
+        padding: 1rem;
+      }
+      .navbar-nav[data-astro-cid-5blmo7yk] {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-logo[data-astro-cid-5blmo7yk] {
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        letter-spacing: 2px;
+        color: var(--matrix-green);
+      }
+      .nav-menu[data-astro-cid-5blmo7yk] {
+        display: flex;
+        justify-content: space-between;
+        font-family:
+          IBM Plex Mono,
+          monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .nav-item[data-astro-cid-5blmo7yk] {
+        margin-right: 1rem;
+      }
+      .nav-link[data-astro-cid-5blmo7yk] {
+        text-decoration: none;
+        color: var(--matrix-green);
+      }
+      .nav-link[data-astro-cid-5blmo7yk]:hover {
+        text-decoration: underline;
+      }
       :root {
+        --matrix-green: #00ff41;
         --accent: 18, 16, 14;
         --accent-light: 43, 65, 98;
         --accent-dark: 49, 10, 101;
@@ -35,626 +92,46 @@
           Courier New,
           monospace;
       }
-      .link-card[data-astro-cid-dohjnao5] {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        padding: 5px;
-        background-color: rgb(var(--accent));
-        border-radius: 7px;
-        overflow: hidden;
-        position: relative;
-        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        width: 400px;
-        height: auto;
-      }
-      .link-card[data-astro-cid-dohjnao5]:hover
-        .link-card-header[data-astro-cid-dohjnao5] {
-        transform: translateY(-100%);
-      }
-      .link-card[data-astro-cid-dohjnao5]:hover
-        .link-card-body[data-astro-cid-dohjnao5] {
-        transform: translateY(0);
-      }
-      .link-card[data-astro-cid-dohjnao5] a[data-astro-cid-dohjnao5] {
-        text-decoration: none;
-        color: #fff;
-      }
-      .link-card-header[data-astro-cid-dohjnao5] {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        box-sizing: border-box;
-        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-      }
-      .link-card-body[data-astro-cid-dohjnao5] {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-        box-sizing: border-box;
-        background-color: rgb(var(--accent-light));
-        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-        transform: translateY(100%);
-      }
-      h2[data-astro-cid-dohjnao5] {
-        margin: 0;
-        font-size: 24px;
-        text-align: center;
-        color: #fff;
-      }
-      p[data-astro-cid-dohjnao5] {
-        margin: 0;
-        text-align: center;
-        color: #fff;
-      }
-      main[data-astro-cid-j7pv25f6] {
-        margin: auto;
-        padding: 1rem;
-        width: 100%;
-        max-width: 800px;
-        color: #fff;
-        font-size: 20px;
-        line-height: 1.6;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .link-card-grid[data-astro-cid-j7pv25f6] {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        padding: 0;
-        justify-content: center;
-      }
-      @media screen and (max-width: 600px) {
-        .link-card-grid[data-astro-cid-j7pv25f6] {
-          grid-template-columns: repeat(1, 1fr);
-        }
-      }
-      @media screen and (min-width: 601px) and (max-width: 900px) {
-        .link-card-grid[data-astro-cid-j7pv25f6] {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-      @media screen and (min-width: 901px) {
-        .link-card-grid[data-astro-cid-j7pv25f6] {
-          grid-template-columns: repeat(3, 1fr);
-        }
-      }
     </style>
   </head>
   <body>
-    <main data-astro-cid-j7pv25f6>
-      <ul role="list" class="link-card-grid" data-astro-cid-j7pv25f6>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bb80a0f6dec9fb91bd7ba" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fprey2017_1678489609296.jpg?alt=media&token=edcc8b5d-2942-4b85-aacd-ef68eee05d2f"
-                class="link-card-image"
-                alt="Prey(2017)"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Prey(2017) <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 5/4/2017</p>
-              <p data-astro-cid-dohjnao5>Genre: Immersive Sim</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bb8a70f6dec9fb91bd7bf" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fgta5_1678489766628.jpg?alt=media&token=5510d247-2f7b-421b-b51a-7859e0fe82cb"
-                class="link-card-image"
-                alt="Grand Theft Auto 5"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Grand Theft Auto 5 <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 9/16/2013</p>
-              <p data-astro-cid-dohjnao5>Genre: Action-adventure</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bb9400f6dec9fb91bd7c9" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fdmc5_1678489919108.jpg?alt=media&token=b6c80166-cd55-4bfa-89b7-ca7a0e260f20"
-                class="link-card-image"
-                alt="Devil May Cry 5"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Devil May Cry 5 <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 3/7/2019</p>
-              <p data-astro-cid-dohjnao5>Genre: Action</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bba170f6dec9fb91bd7ce" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fmetroid%20prime_1678490134281.jpg?alt=media&token=e3e36d45-020f-4256-892a-e257c695b3f9"
-                class="link-card-image"
-                alt="Metroid Prime"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Metroid Prime <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 11/17/2002</p>
-              <p data-astro-cid-dohjnao5>Genre: Metroidvania</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bba6a0f6dec9fb91bd7d0" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Frdr2_1678490216463.jpg?alt=media&token=354af4aa-a9f4-4392-a45c-60877ef3f5e4"
-                class="link-card-image"
-                alt="Red Dead Redemption 2"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Red Dead Redemption 2
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 10/25/2018</p>
-              <p data-astro-cid-dohjnao5>Genre: Action-adventure</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bbae20f6dec9fb91bd7d3" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fwitcher3_1678490336840.jpg?alt=media&token=92c23b06-4e4f-4140-9b87-242dba79fad6"
-                class="link-card-image"
-                alt="The Witcher 3: Wild Hunt"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                The Witcher 3: Wild Hunt
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 5/18/2015</p>
-              <p data-astro-cid-dohjnao5>Genre: Action-RPG</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bbc320f6dec9fb91bd7d5" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fdisco_1678490672589.jpg?alt=media&token=9a9dfad7-6266-4442-babb-2dcbd5bb8c13"
-                class="link-card-image"
-                alt="Disco Elysium"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Disco Elysium <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 10/14/2019</p>
-              <p data-astro-cid-dohjnao5>Genre: Role-playing game</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bbcf00f6dec9fb91bd7d7" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Frevillage_1678490863101.jpg?alt=media&token=d7be3944-a2bb-4c7d-9bb9-d36d56c9eece"
-                class="link-card-image"
-                alt="Resident Evil Village"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Resident Evil Village
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 5/6/2021</p>
-              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640bf3ee45b4f10bd6b759aa" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Ffnv_1678504941264.jpg?alt=media&token=628634cc-8891-406d-907d-3d404d75d9c0"
-                class="link-card-image"
-                alt="Fallout: New Vegas"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Fallout: New Vegas <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 10/18/2010</p>
-              <p data-astro-cid-dohjnao5>Genre: Action-RPG</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640d5c6020a8b599a3c10f93" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fskyrim_1678597214647.jpg?alt=media&token=4bb7daa1-b3da-4acd-ab72-b1d0cc8c72c2"
-                class="link-card-image"
-                alt="The Elder Scrolls 5: Skyrim"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                The Elder Scrolls 5: Skyrim
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.7 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 11/10/2011</p>
-              <p data-astro-cid-dohjnao5>Genre: Action-RPG</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640d5eadf032aa2539c425c1" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fw3frozen_1678597804095.jpg?alt=media&token=61a56165-92b4-4d6d-9af3-b26a799785ed"
-                class="link-card-image"
-                alt="Warcraft 3: The Frozen Throne"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Warcraft 3: The Frozen Throne
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 6/30/2003</p>
-              <p data-astro-cid-dohjnao5>Genre: Real-time strategy</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640e7e6315c8d678379dc05c" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fmanhunt_1678671458428.jpg?alt=media&token=e4a15396-7722-46ec-a1bd-088025d6fbb1"
-                class="link-card-image"
-                alt="Manhunt"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Manhunt <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 3.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 11/17/2003</p>
-              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/640fd00402c7224ae77eb2a6" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fre2remake_1678757891049.jpg?alt=media&token=59e51e1d-1d00-411b-99ab-bdce43fa0061"
-                class="link-card-image"
-                alt="Resident Evil 2(2019)"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Resident Evil 2(2019)
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 1/24/2019</p>
-              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/6452f83ec617c3fbb6edb6b1" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2FDoom-Eternal_1683159101305.jpg?alt=media&token=4fdc006f-a016-418e-b05b-a0688e2cbf9a"
-                class="link-card-image"
-                alt="Doom Eternal"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Doom Eternal <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.6 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 3/19/2020</p>
-              <p data-astro-cid-dohjnao5>Genre: Shooter</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/645305f10a77b2dcc9065cca" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fsh2_1683162607462.jpg?alt=media&token=565d73df-c7cc-4fd8-8d3e-6ed651eaba66"
-                class="link-card-image"
-                alt="Silent Hill 2"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Silent Hill 2 <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.8 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 9/23/2001</p>
-              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/645309450a77b2dcc9065cfe" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2FStreet-Fighter-V-Championship-Edition_1683163460114.jpg?alt=media&token=94ded9b0-a171-4e63-8eaf-6dc1bde27637"
-                class="link-card-image"
-                alt="Street Fighter 5: Champion Edition"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Street Fighter 5: Champion Edition
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.1 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 2/13/2020</p>
-              <p data-astro-cid-dohjnao5>Genre: Fighting</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/645336e3dfbfcd57ea54b173" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fcastlevania_symphony_1683175138272.jpg?alt=media&token=f7e79a77-d428-4574-8650-df5314bf9721"
-                class="link-card-image"
-                alt="Castlevania: Symphony of the Night"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Castlevania: Symphony of the Night
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.8 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 3/19/1997</p>
-              <p data-astro-cid-dohjnao5>Genre: Metroidvania</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/64533910cfef07c45c58f8f0" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Foutlast2_1683175695253.jpg?alt=media&token=87e6e7a9-2a09-4a24-96ba-55f9ead31012"
-                class="link-card-image"
-                alt="Outlast 2"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Outlast 2 <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 4/24/2017</p>
-              <p data-astro-cid-dohjnao5>Genre: Horror</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/64545fe38b2bd3696dcb59eb" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fmk11_1683251170107.jpg?alt=media&token=901bd450-3424-4c17-b6be-623e7b08fa89"
-                class="link-card-image"
-                alt="Mortal Kombat 11"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Mortal Kombat 11 <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 4/22/2019</p>
-              <p data-astro-cid-dohjnao5>Genre: Fighting</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/6454643523ba179cab893ad7" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fdmomam_1683252276694.jpg?alt=media&token=f03d2155-97a6-406a-b46d-d7c978082b36"
-                class="link-card-image"
-                alt="Dark Messiah of Might and Magic"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Dark Messiah of Might and Magic
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 10/23/2006</p>
-              <p data-astro-cid-dohjnao5>Genre: Immersive Sim</p>
-            </div>
-          </a>
-        </li>
-        <li class="link-card" data-astro-cid-dohjnao5>
-          <a href="/articles/64a8b10d6b9ea47bea7849e6" data-astro-cid-dohjnao5>
-            <div class="link-card-header" data-astro-cid-dohjnao5>
-              <img
-                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fgtasa_1688776972193.jpg?alt=media&token=08590372-8647-4e84-839f-11718d42d692"
-                class="link-card-image"
-                alt="Grand Theft Auto: San Andreas"
-                data-astro-cid-dohjnao5
-                width="300"
-                height="150"
-                loading="lazy"
-                decoding="async"
-              />
-              <h2 data-astro-cid-dohjnao5>
-                Grand Theft Auto: San Andreas
-                <span data-astro-cid-dohjnao5>&rarr;</span>
-              </h2>
-            </div>
-            <div class="link-card-body" data-astro-cid-dohjnao5>
-              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
-              <p data-astro-cid-dohjnao5>Release Date: 10/25/2004</p>
-              <p data-astro-cid-dohjnao5>Genre: Action-adventure</p>
-            </div>
-          </a>
-        </li>
+    <nav class="navbar" data-astro-cid-5blmo7yk>
+      <ul class="navbar-nav" data-astro-cid-5blmo7yk>
+        <div class="nav-logo" data-astro-cid-5blmo7yk>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/" class="nav-link" data-astro-cid-5blmo7yk>G4ME_Z0NE</a>
+          </li>
+        </div>
+        <div class="nav-menu" data-astro-cid-5blmo7yk>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/feed" class="nav-link" data-astro-cid-5blmo7yk>Feed</a>
+          </li>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/about" class="nav-link" data-astro-cid-5blmo7yk>About</a>
+          </li>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/contact" class="nav-link" data-astro-cid-5blmo7yk
+              >Contact</a
+            >
+          </li>
+        </div>
       </ul>
+    </nav>
+    <main data-astro-cid-j7pv25f6>
+      <h1 data-astro-cid-j7pv25f6>Welcome to the G4ME_Z0NE(Astro Js)!</h1>
+      <p data-astro-cid-j7pv25f6>
+        Dive into the exciting world of video games with our comprehensive game
+        review blog. Whether you're a passionate gamer seeking in-depth analyses
+        or a casual player looking for recommendations, we've got you covered.
+        Our expert team of gamers explores the latest releases across all
+        platforms, from blockbuster AAA titles to indie gems, delivering honest
+        and insightful reviews that help you make informed decisions. With a
+        focus on quality content, engaging discussions, and a vibrant community
+        of fellow gamers, G4ME_Z0NE is your go-to hub for discovering,
+        discussing, and celebrating the captivating world of gaming. Join us on
+        this thrilling journey and level up your gaming experience today!
+      </p>
+      <p data-astro-cid-j7pv25f6>(go to Feed)</p>
     </main>
   </body>
 </html>

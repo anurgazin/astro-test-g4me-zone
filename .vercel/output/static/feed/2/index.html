@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="Astro v4.7.1" />
+    <title>Feed</title>
+    <style>
+      @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+10&display=swap";
+      .navbar[data-astro-cid-5blmo7yk] {
+        background-color: rgb(var(--accent));
+        padding: 1rem;
+      }
+      .navbar-nav[data-astro-cid-5blmo7yk] {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-logo[data-astro-cid-5blmo7yk] {
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        letter-spacing: 2px;
+        color: var(--matrix-green);
+      }
+      .nav-menu[data-astro-cid-5blmo7yk] {
+        display: flex;
+        justify-content: space-between;
+        font-family:
+          IBM Plex Mono,
+          monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .nav-item[data-astro-cid-5blmo7yk] {
+        margin-right: 1rem;
+      }
+      .nav-link[data-astro-cid-5blmo7yk] {
+        text-decoration: none;
+        color: var(--matrix-green);
+      }
+      .nav-link[data-astro-cid-5blmo7yk]:hover {
+        text-decoration: underline;
+      }
+      :root {
+        --matrix-green: #00ff41;
+        --accent: 18, 16, 14;
+        --accent-light: 43, 65, 98;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          90deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+        background-size: 224px;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+      .link-card[data-astro-cid-dohjnao5] {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        background-color: rgb(var(--accent));
+        border-radius: 7px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        width: 400px;
+        height: auto;
+      }
+      .link-card[data-astro-cid-dohjnao5]:hover
+        .link-card-header[data-astro-cid-dohjnao5] {
+        transform: translateY(-100%);
+      }
+      .link-card[data-astro-cid-dohjnao5]:hover
+        .link-card-body[data-astro-cid-dohjnao5] {
+        transform: translateY(0);
+      }
+      .link-card[data-astro-cid-dohjnao5] a[data-astro-cid-dohjnao5] {
+        text-decoration: none;
+        color: #fff;
+      }
+      .link-card-header[data-astro-cid-dohjnao5] {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .link-card-body[data-astro-cid-dohjnao5] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgb(var(--accent-light));
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        transform: translateY(100%);
+      }
+      h2[data-astro-cid-dohjnao5] {
+        margin: 0;
+        font-size: 30px;
+        text-align: center;
+        color: #fff;
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      p[data-astro-cid-dohjnao5] {
+        margin: 0;
+        text-align: center;
+        color: #fff;
+      }
+      .pagination[data-astro-cid-d776pwuy] {
+        display: flex;
+        align-items: center;
+      }
+      .pagination-link[data-astro-cid-d776pwuy] {
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem;
+        color: var(--matrix-green);
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .pagination-link[data-astro-cid-d776pwuy]:hover {
+        background-color: #388e3c;
+      }
+      main[data-astro-cid-o6irmua3] {
+        margin: auto;
+        padding: 1rem;
+        width: 100%;
+        max-width: 800px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .link-card-grid[data-astro-cid-o6irmua3] {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 0;
+        justify-content: center;
+      }
+      @media screen and (max-width: 600px) {
+        .link-card-grid[data-astro-cid-o6irmua3] {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      @media screen and (min-width: 601px) and (max-width: 900px) {
+        .link-card-grid[data-astro-cid-o6irmua3] {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media screen and (min-width: 901px) {
+        .link-card-grid[data-astro-cid-o6irmua3] {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar" data-astro-cid-5blmo7yk>
+      <ul class="navbar-nav" data-astro-cid-5blmo7yk>
+        <div class="nav-logo" data-astro-cid-5blmo7yk>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/" class="nav-link" data-astro-cid-5blmo7yk>G4ME_Z0NE</a>
+          </li>
+        </div>
+        <div class="nav-menu" data-astro-cid-5blmo7yk>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/feed" class="nav-link" data-astro-cid-5blmo7yk>Feed</a>
+          </li>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/about" class="nav-link" data-astro-cid-5blmo7yk>About</a>
+          </li>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/contact" class="nav-link" data-astro-cid-5blmo7yk
+              >Contact</a
+            >
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <main data-astro-cid-o6irmua3>
+      <ul role="list" class="link-card-grid" data-astro-cid-o6irmua3>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/640d5c6020a8b599a3c10f93" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fskyrim_1678597214647.jpg?alt=media&token=4bb7daa1-b3da-4acd-ab72-b1d0cc8c72c2"
+                class="link-card-image"
+                alt="The Elder Scrolls 5: Skyrim"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                The Elder Scrolls 5: Skyrim
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.7 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 11/10/2011</p>
+              <p data-astro-cid-dohjnao5>Genre: Action-RPG</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/640d5eadf032aa2539c425c1" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fw3frozen_1678597804095.jpg?alt=media&token=61a56165-92b4-4d6d-9af3-b26a799785ed"
+                class="link-card-image"
+                alt="Warcraft 3: The Frozen Throne"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Warcraft 3: The Frozen Throne
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 6/30/2003</p>
+              <p data-astro-cid-dohjnao5>Genre: Real-time strategy</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/640e7e6315c8d678379dc05c" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fmanhunt_1678671458428.jpg?alt=media&token=e4a15396-7722-46ec-a1bd-088025d6fbb1"
+                class="link-card-image"
+                alt="Manhunt"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Manhunt <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 3.5 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 11/17/2003</p>
+              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/640fd00402c7224ae77eb2a6" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fre2remake_1678757891049.jpg?alt=media&token=59e51e1d-1d00-411b-99ab-bdce43fa0061"
+                class="link-card-image"
+                alt="Resident Evil 2(2019)"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Resident Evil 2(2019)
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 1/24/2019</p>
+              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/6452f83ec617c3fbb6edb6b1" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2FDoom-Eternal_1683159101305.jpg?alt=media&token=4fdc006f-a016-418e-b05b-a0688e2cbf9a"
+                class="link-card-image"
+                alt="Doom Eternal"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Doom Eternal <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.6 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 3/19/2020</p>
+              <p data-astro-cid-dohjnao5>Genre: Shooter</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/645305f10a77b2dcc9065cca" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fsh2_1683162607462.jpg?alt=media&token=565d73df-c7cc-4fd8-8d3e-6ed651eaba66"
+                class="link-card-image"
+                alt="Silent Hill 2"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Silent Hill 2 <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.8 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 9/23/2001</p>
+              <p data-astro-cid-dohjnao5>Genre: Survival horror</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/645309450a77b2dcc9065cfe" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2FStreet-Fighter-V-Championship-Edition_1683163460114.jpg?alt=media&token=94ded9b0-a171-4e63-8eaf-6dc1bde27637"
+                class="link-card-image"
+                alt="Street Fighter 5: Champion Edition"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Street Fighter 5: Champion Edition
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.1 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 2/13/2020</p>
+              <p data-astro-cid-dohjnao5>Genre: Fighting</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/645336e3dfbfcd57ea54b173" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fcastlevania_symphony_1683175138272.jpg?alt=media&token=f7e79a77-d428-4574-8650-df5314bf9721"
+                class="link-card-image"
+                alt="Castlevania: Symphony of the Night"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Castlevania: Symphony of the Night
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.8 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 3/19/1997</p>
+              <p data-astro-cid-dohjnao5>Genre: Metroidvania</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/64533910cfef07c45c58f8f0" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Foutlast2_1683175695253.jpg?alt=media&token=87e6e7a9-2a09-4a24-96ba-55f9ead31012"
+                class="link-card-image"
+                alt="Outlast 2"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Outlast 2 <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 4/24/2017</p>
+              <p data-astro-cid-dohjnao5>Genre: Horror</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <nav class="pagination" aria-label="Blog pages" data-astro-cid-d776pwuy>
+        <a href="/feed" class="pagination-link" data-astro-cid-d776pwuy>
+          Prev
+        </a>
+        <a href="/feed/3" class="pagination-link" data-astro-cid-d776pwuy>
+          Next
+        </a>
+      </nav>
+    </main>
+  </body>
+</html>

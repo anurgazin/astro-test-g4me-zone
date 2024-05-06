@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content="Astro v4.7.1" />
+    <title>Feed</title>
+    <style>
+      @import "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Jersey+10&display=swap";
+      .navbar[data-astro-cid-5blmo7yk] {
+        background-color: rgb(var(--accent));
+        padding: 1rem;
+      }
+      .navbar-nav[data-astro-cid-5blmo7yk] {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .nav-logo[data-astro-cid-5blmo7yk] {
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 40px;
+        letter-spacing: 2px;
+        color: var(--matrix-green);
+      }
+      .nav-menu[data-astro-cid-5blmo7yk] {
+        display: flex;
+        justify-content: space-between;
+        font-family:
+          IBM Plex Mono,
+          monospace;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .nav-item[data-astro-cid-5blmo7yk] {
+        margin-right: 1rem;
+      }
+      .nav-link[data-astro-cid-5blmo7yk] {
+        text-decoration: none;
+        color: var(--matrix-green);
+      }
+      .nav-link[data-astro-cid-5blmo7yk]:hover {
+        text-decoration: underline;
+      }
+      :root {
+        --matrix-green: #00ff41;
+        --accent: 18, 16, 14;
+        --accent-light: 43, 65, 98;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          90deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background: #13151a;
+        background-size: 224px;
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+      .link-card[data-astro-cid-dohjnao5] {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 5px;
+        background-color: rgb(var(--accent));
+        border-radius: 7px;
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        width: 400px;
+        height: auto;
+      }
+      .link-card[data-astro-cid-dohjnao5]:hover
+        .link-card-header[data-astro-cid-dohjnao5] {
+        transform: translateY(-100%);
+      }
+      .link-card[data-astro-cid-dohjnao5]:hover
+        .link-card-body[data-astro-cid-dohjnao5] {
+        transform: translateY(0);
+      }
+      .link-card[data-astro-cid-dohjnao5] a[data-astro-cid-dohjnao5] {
+        text-decoration: none;
+        color: #fff;
+      }
+      .link-card-header[data-astro-cid-dohjnao5] {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .link-card-body[data-astro-cid-dohjnao5] {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgb(var(--accent-light));
+        transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        transform: translateY(100%);
+      }
+      h2[data-astro-cid-dohjnao5] {
+        margin: 0;
+        font-size: 30px;
+        text-align: center;
+        color: #fff;
+        font-family: "Jersey 10", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+      p[data-astro-cid-dohjnao5] {
+        margin: 0;
+        text-align: center;
+        color: #fff;
+      }
+      .pagination[data-astro-cid-d776pwuy] {
+        display: flex;
+        align-items: center;
+      }
+      .pagination-link[data-astro-cid-d776pwuy] {
+        margin: 0 0.5rem;
+        padding: 0.5rem 1rem;
+        color: var(--matrix-green);
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .pagination-link[data-astro-cid-d776pwuy]:hover {
+        background-color: #388e3c;
+      }
+      main[data-astro-cid-o6irmua3] {
+        margin: auto;
+        padding: 1rem;
+        width: 100%;
+        max-width: 800px;
+        color: #fff;
+        font-size: 20px;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .link-card-grid[data-astro-cid-o6irmua3] {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        padding: 0;
+        justify-content: center;
+      }
+      @media screen and (max-width: 600px) {
+        .link-card-grid[data-astro-cid-o6irmua3] {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+      @media screen and (min-width: 601px) and (max-width: 900px) {
+        .link-card-grid[data-astro-cid-o6irmua3] {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media screen and (min-width: 901px) {
+        .link-card-grid[data-astro-cid-o6irmua3] {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar" data-astro-cid-5blmo7yk>
+      <ul class="navbar-nav" data-astro-cid-5blmo7yk>
+        <div class="nav-logo" data-astro-cid-5blmo7yk>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/" class="nav-link" data-astro-cid-5blmo7yk>G4ME_Z0NE</a>
+          </li>
+        </div>
+        <div class="nav-menu" data-astro-cid-5blmo7yk>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/feed" class="nav-link" data-astro-cid-5blmo7yk>Feed</a>
+          </li>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/about" class="nav-link" data-astro-cid-5blmo7yk>About</a>
+          </li>
+          <li class="nav-item" data-astro-cid-5blmo7yk>
+            <a href="/contact" class="nav-link" data-astro-cid-5blmo7yk
+              >Contact</a
+            >
+          </li>
+        </div>
+      </ul>
+    </nav>
+    <main data-astro-cid-o6irmua3>
+      <ul role="list" class="link-card-grid" data-astro-cid-o6irmua3>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/64545fe38b2bd3696dcb59eb" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fmk11_1683251170107.jpg?alt=media&token=901bd450-3424-4c17-b6be-623e7b08fa89"
+                class="link-card-image"
+                alt="Mortal Kombat 11"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Mortal Kombat 11 <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 4/22/2019</p>
+              <p data-astro-cid-dohjnao5>Genre: Fighting</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/6454643523ba179cab893ad7" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fdmomam_1683252276694.jpg?alt=media&token=f03d2155-97a6-406a-b46d-d7c978082b36"
+                class="link-card-image"
+                alt="Dark Messiah of Might and Magic"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Dark Messiah of Might and Magic
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 10/23/2006</p>
+              <p data-astro-cid-dohjnao5>Genre: Immersive Sim</p>
+            </div>
+          </a>
+        </li>
+        <li class="link-card" data-astro-cid-dohjnao5>
+          <a href="/articles/64a8b10d6b9ea47bea7849e6" data-astro-cid-dohjnao5>
+            <div class="link-card-header" data-astro-cid-dohjnao5>
+              <img
+                src="https://firebasestorage.googleapis.com/v0/b/g4me-zone-5d28f.appspot.com/o/images%2Fgtasa_1688776972193.jpg?alt=media&token=08590372-8647-4e84-839f-11718d42d692"
+                class="link-card-image"
+                alt="Grand Theft Auto: San Andreas"
+                data-astro-cid-dohjnao5
+                width="300"
+                height="150"
+                loading="lazy"
+                decoding="async"
+              />
+              <h2 data-astro-cid-dohjnao5>
+                Grand Theft Auto: San Andreas
+                <span data-astro-cid-dohjnao5>&rarr;</span>
+              </h2>
+            </div>
+            <div class="link-card-body" data-astro-cid-dohjnao5>
+              <p data-astro-cid-dohjnao5>Rating: 4.5 / 5</p>
+              <p data-astro-cid-dohjnao5>Release Date: 10/25/2004</p>
+              <p data-astro-cid-dohjnao5>Genre: Action-adventure</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+      <nav class="pagination" aria-label="Blog pages" data-astro-cid-d776pwuy>
+        <a href="/feed/2" class="pagination-link" data-astro-cid-d776pwuy>
+          Prev
+        </a>
+      </nav>
+    </main>
+  </body>
+</html>

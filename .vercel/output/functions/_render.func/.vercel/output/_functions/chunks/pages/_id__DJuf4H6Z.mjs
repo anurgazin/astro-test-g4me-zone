@@ -12,9 +12,9 @@ import {
   s as spreadAttributes,
   h as createAstro,
   i as renderHead,
-  j as renderSlot,
-  k as renderComponent,
-} from "../astro_B99kgnnP.mjs";
+  j as renderComponent,
+  k as renderSlot,
+} from "../astro_Bg-F9f7K.mjs";
 import "kleur/colors";
 import "html-escaper";
 import {
@@ -23,7 +23,7 @@ import {
   a as isESMImportedImage,
   b as isLocalService,
   D as DEFAULT_HASH_PROPS,
-} from "../astro/assets-service_C86B9cut.mjs";
+} from "../astro/assets-service_DcelVCcB.mjs";
 import "clsx";
 /* empty css                         */
 /* empty css                         */
@@ -863,7 +863,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      "../astro/assets-service_C86B9cut.mjs"
+      "../astro/assets-service_DcelVCcB.mjs"
     )
       .then((n) => n.k)
       .catch((e) => {
@@ -976,10 +976,10 @@ async function getImage$1(options, imageConfig) {
   };
 }
 
-const $$Astro$4 = createAstro();
+const $$Astro$5 = createAstro();
 const $$Image = createComponent(
   async ($$result, $$props, $$slots) => {
-    const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
+    const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
     Astro2.self = $$Image;
     const props = Astro2.props;
     if (props.alt === void 0 || props.alt === null) {
@@ -1002,10 +1002,10 @@ const $$Image = createComponent(
   void 0,
 );
 
-const $$Astro$3 = createAstro();
+const $$Astro$4 = createAstro();
 const $$Picture = createComponent(
   async ($$result, $$props, $$slots) => {
-    const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
+    const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
     Astro2.self = $$Picture;
     const defaultFormats = ["webp"];
     const defaultFallbackFormat = "png";
@@ -1075,10 +1075,14 @@ const imageConfig = {
 };
 const getImage = async (options) => await getImage$1(options, imageConfig);
 
+const $$Astro$3 = createAstro();
 const $$Back = createComponent(
   ($$result, $$props, $$slots) => {
-    return renderTemplate`${maybeRenderHead()}<a href="/" class="back-link" data-astro-cid-g5kbnxd7> <span data-astro-cid-g5kbnxd7>&larr;</span>
-Back to main page
+    const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
+    Astro2.self = $$Back;
+    const { link, pageTitle } = Astro2.props;
+    return renderTemplate`${maybeRenderHead()}<a${addAttribute(link, "href")} class="back-link" data-astro-cid-g5kbnxd7> <span data-astro-cid-g5kbnxd7>&larr;</span>
+Back to ${pageTitle} page
 </a> `;
   },
   "C:/Users/Aldiyar Nurgazin/astro-test/exotic-ephemera/src/components/Back.astro",
@@ -1098,13 +1102,21 @@ const $$Comment = createComponent(
   void 0,
 );
 
+const $$Navbar = createComponent(
+  ($$result, $$props, $$slots) => {
+    return renderTemplate`${maybeRenderHead()}<nav class="navbar" data-astro-cid-5blmo7yk> <ul class="navbar-nav" data-astro-cid-5blmo7yk> <div class="nav-logo" data-astro-cid-5blmo7yk> <li class="nav-item" data-astro-cid-5blmo7yk> <a href="/" class="nav-link" data-astro-cid-5blmo7yk>G4ME_Z0NE</a> </li> </div> <div class="nav-menu" data-astro-cid-5blmo7yk> <li class="nav-item" data-astro-cid-5blmo7yk> <a href="/feed" class="nav-link" data-astro-cid-5blmo7yk>Feed</a> </li> <li class="nav-item" data-astro-cid-5blmo7yk> <a href="/about" class="nav-link" data-astro-cid-5blmo7yk>About</a> </li> <li class="nav-item" data-astro-cid-5blmo7yk> <a href="/contact" class="nav-link" data-astro-cid-5blmo7yk>Contact</a> </li> </div> </ul> </nav> `;
+  },
+  "C:/Users/Aldiyar Nurgazin/astro-test/exotic-ephemera/src/components/Navbar.astro",
+  void 0,
+);
+
 const $$Astro$1 = createAstro();
 const $$Layout = createComponent(
   ($$result, $$props, $$slots) => {
     const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
     Astro2.self = $$Layout;
     const { title } = Astro2.props;
-    return renderTemplate`<html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"${addAttribute(Astro2.generator, "content")}><title>${title}</title>${renderHead()}</head> <body> ${renderSlot($$result, $$slots["default"])} </body></html>`;
+    return renderTemplate`<html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><meta name="generator"${addAttribute(Astro2.generator, "content")}><title>${title}</title>${renderHead()}</head> <body> ${renderComponent($$result, "Navbar", $$Navbar, {})} ${renderSlot($$result, $$slots["default"])} </body></html>`;
   },
   "C:/Users/Aldiyar Nurgazin/astro-test/exotic-ephemera/src/layouts/Layout.astro",
   void 0,
@@ -1134,7 +1146,7 @@ const $$id = createComponent(
       {
         default: (
           $$result2,
-        ) => renderTemplate` ${renderComponent($$result2, "Back", $$Back, { "data-astro-cid-dpxbdw67": true })} ${maybeRenderHead()}<main data-astro-cid-dpxbdw67> <div class="article-header" data-astro-cid-dpxbdw67> ${renderComponent($$result2, "Image", $$Image, { class: "article-image", src: article.image, alt: article.title, width: 800, height: 400, "data-astro-cid-dpxbdw67": true })} <h2 data-astro-cid-dpxbdw67> ${article.title} </h2> <p data-astro-cid-dpxbdw67>
+        ) => renderTemplate` ${renderComponent($$result2, "Back", $$Back, { link: "/feed", pageTitle: "feed", "data-astro-cid-dpxbdw67": true })} ${maybeRenderHead()}<main data-astro-cid-dpxbdw67> <div class="article-header" data-astro-cid-dpxbdw67> ${renderComponent($$result2, "Image", $$Image, { class: "article-image", src: article.image, alt: article.title, width: 800, height: 400, "data-astro-cid-dpxbdw67": true })} <h2 data-astro-cid-dpxbdw67> ${article.title} </h2> <p data-astro-cid-dpxbdw67>
 Rating: ${article.rating} / 5
 </p> <p data-astro-cid-dpxbdw67>
 Release Date: ${release.toLocaleDateString()} </p> <p data-astro-cid-dpxbdw67>
