@@ -17,7 +17,7 @@ import Layout from "../layouts/Layout.astro";
       celebrating the captivating world of gaming. Join us on this thrilling
       journey and level up your gaming experience today!
     </p>
-    <p>(go to Feed)</p>
+    <p>(go to <a class="link-feed" href="/feed">Feed</a>)</p>
   </main>
 </Layout>
 
@@ -39,5 +39,9 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.1rem;
     color: white;
     line-height: 1.6;
+  }
+  .link-feed {
+    text-decoration: none;
+    color: var(--matrix-green);
   }
 </style>
