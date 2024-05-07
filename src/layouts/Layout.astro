@@ -27,19 +27,19 @@ const { title } = Astro.props;
 <style is:global>
   :root {
     --matrix-green: #00ff41;
-    --accent: 18, 16, 14;
+    --accent: #33ff67;
     --accent-light: 43, 65, 98;
-    --accent-dark: 49, 10, 101;
+    --main-background: #020615;
     --accent-gradient: linear-gradient(
       90deg,
-      rgb(var(--accent)),
+      var(--accent),
       rgb(var(--accent-light)) 30%,
       white 60%
     );
   }
   html {
     font-family: system-ui, sans-serif;
-    background: #13151a;
+    background: var(--main-background);
     background-size: 224px;
   }
   code {
