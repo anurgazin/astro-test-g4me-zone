@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="About">
+  <div class="div_about">
+    <p class="div_about_greeting">Welcome to G4ME_Z0NE</p>
+    <div class="div_about_p">
+      <p class="div_about_p1">
+        My name is Aldiyar Nurgazin, but you may know me as CHOCOLAT1ER.
+        G4ME_Z0NE is the ultimate destination for gaming reviews and community
+        engagement. This site is a platform to connect with fellow gamers from
+        around the world.
+      </p>
+      <p class="div_about_p2">
+        Right now users have the opportunity to read game reviews from our team,
+        leave comments, and communicate with other community members. In the
+        future, I plan to add news bulletins about gaming and related spheres.
+        Thank you for your time and dedication. And remember
+      </p>
+    </div>
+    <p class="div_about_end">
+      <span class="div_about_greeting">G4ME_Z0NE</span> - Your Gateway to the Gaming
+      World.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .div_about {
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+    justify-content: center;
+    color: white;
+  }
+  .div_about_greeting {
+    font-family: "Jersey 10", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: var(--matrix-green);
+  }
+  .div_about_p {
+    display: flex;
+    flex-flow: column wrap;
+    width: 775px;
+  }
+  .div_about_end {
+    font-family: "Iceland";
+    font-size: 23px;
+    font-style: bold;
+  }
+</style>
