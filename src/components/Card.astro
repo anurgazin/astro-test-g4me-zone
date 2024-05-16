@@ -10,7 +10,7 @@ const { article } = Astro.props;
 const release = new Date(article.release_date);
 ---
 
-<li class="link-card">
+<li class="link-card link-card-hidden">
   <a href=`/articles/${article._id}`>
     <div class="link-card-header">
       <Image
@@ -40,6 +40,17 @@ const release = new Date(article.release_date);
 </li>
 
 <style>
+  @keyframes slideIn {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
   .link-card {
     list-style: none;
     display: flex;
@@ -49,20 +60,19 @@ const release = new Date(article.release_date);
     border-radius: 7px;
     overflow: hidden;
     position: relative;
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     width: 400px;
     height: auto;
   }
-  .link-card:hover .link-card-header {
-    transform: translateY(-100%);
+
+  .link-card-hidden {
+    animation: slideIn 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
-  .link-card:hover .link-card-body {
-    transform: translateY(0);
-  }
+
   .link-card a {
     text-decoration: none;
     color: #fff;
   }
+
   .link-card-header {
     position: relative;
     top: 0;
@@ -76,8 +86,8 @@ const release = new Date(article.release_date);
     padding: 20px;
     box-sizing: border-box;
     color: white;
-    transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
+
   .link-card-body {
     position: absolute;
     top: 0;
@@ -95,6 +105,15 @@ const release = new Date(article.release_date);
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
     transform: translateY(100%);
   }
+
+  .link-card:hover .link-card-header {
+    transform: translateY(-100%);
+  }
+
+  .link-card:hover .link-card-body {
+    transform: translateY(0);
+  }
+
   h2 {
     margin: 0;
     font-size: 30px;
@@ -103,6 +122,7 @@ const release = new Date(article.release_date);
     font-weight: 400;
     font-style: normal;
   }
+
   p {
     margin: 0;
     text-align: center;
