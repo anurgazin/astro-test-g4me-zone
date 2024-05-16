@@ -7,9 +7,10 @@ import type { Comment as CommentType } from "../../../interfaces";
 export const prerender = false;
 const { id } = Astro.params;
 
-const response = await fetch(import.meta.env.PUBLIC_API_URL + "article/" + id);
-const data = await response.json();
-const article = data.data;
+const response = await fetch(
+  import.meta.env.PUBLIC_API_URL + "article/" + id,
+).then((r) => r.json());
+const article = response.data;
 const release = new Date(article.release_date);
 const comments = await fetch(
   import.meta.env.PUBLIC_API_URL + "comments/" + id,
@@ -61,6 +62,16 @@ const comments = await fetch(
 </Layout>
 
 <style>
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.8);
+      opacity: 0.2;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
   main {
     margin: auto;
     padding: 1rem;
@@ -73,6 +84,11 @@ const comments = await fetch(
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .article-image {
+    width: 100%;
+    height: auto;
+    animation: scaleIn 2s ease-in-out;
   }
   .article-header h2 {
     font-family: "Jersey 10", sans-serif;
@@ -93,11 +109,38 @@ const comments = await fetch(
   }
 
   .article-comment-grid {
+    width: 800px;
+    max-width: calc(100% - 2rem);
     padding: 1rem;
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
     border-radius: 5px;
     list-style-type: none;
+  }
+
+  @media (max-width: 768px) {
+    .article-header h2 {
+      font-size: 1.5rem;
+    }
+    .article-body {
+      font-size: 0.9rem;
+      padding: 10px;
+    }
+    .article-comment-grid {
+      padding: 10px;
+    }
+  }
+  @media (max-width: 480px) {
+    .article-header h2 {
+      font-size: 1.2rem;
+    }
+    .article-body {
+      font-size: 0.8rem;
+      padding: 8px;
+    }
+    .article-comment-grid {
+      padding: 8px;
+    }
   }
 </style>
