@@ -3,61 +3,57 @@ import { Image } from "astro:assets";
 import Back from "../../components/Back.astro";
 import Comment from "../../components/Comment.astro";
 import Layout from "../../layouts/Layout.astro";
-import type { Comment as CommentType } from "../../../interfaces";
+import type { Article, Comment as CommentType } from "../../../interfaces";
+
 export const prerender = false;
 const { id } = Astro.params;
 
-const response = await fetch(
+const articleData = await fetch(
   import.meta.env.PUBLIC_API_URL + "article/" + id,
 ).then((r) => r.json());
-const article = response.data;
+const article: Article = articleData.data;
 const release = new Date(article.release_date);
-const comments = await fetch(
+
+const commentsData = await fetch(
   import.meta.env.PUBLIC_API_URL + "comments/" + id,
 ).then((r) => r.json());
+const comments: CommentType[] = commentsData.data;
 ---
 
 <Layout title={article.title}>
   <Back link="/feed" pageTitle="feed" />
   <main>
-    <div class="article-header">
+    <article class="article-header">
       <Image
         class="article-image"
         src={article.image}
-        alt={article.title}
+        alt={`Image for ${article.title}`}
         width={800}
         height={400}
       />
-      <h2>
-        {article.title}
-      </h2>
-      <p>
-        Rating: {article.rating} / 5
-      </p>
-      <p>
-        Release Date: {release.toLocaleDateString()}
-      </p>
-      <p>
-        Genre: {article.genre}
-      </p>
-    </div>
-    <div class="article-body">
-      <p>
-        {article.text}
-      </p>
+      <h1>{article.title}</h1>
+      <p>Rating: {article.rating} / 5</p>
+      <p>Release Date: {release.toLocaleDateString()}</p>
+      <p>Genre: {article.genre}</p>
+    </article>
+    <section class="article-body">
+      <p>{article.text}</p>
       <p>Review Written By: {article.author}</p>
-    </div>
-    <ul role="list" class="article-comment-grid">
-      {
-        comments.data.length > 0 ? (
-          comments.data.map((comment: CommentType) => (
-            <Comment comment={comment} />
-          ))
-        ) : (
-          <li>No comments Yet</li>
-        )
-      }
-    </ul>
+    </section>
+    <section class="article-comments">
+      <h2>Comments</h2>
+      <ul role="list" class="article-comment-grid">
+        {
+          comments.length > 0 ? (
+            comments.map((comment: CommentType) => (
+              <Comment comment={comment} />
+            ))
+          ) : (
+            <li>No comments yet</li>
+          )
+        }
+      </ul>
+    </section>
   </main>
 </Layout>
 
@@ -75,72 +71,83 @@ const comments = await fetch(
   main {
     margin: auto;
     padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
+    max-width: 800px;
     color: white;
-    font-size: 20px;
-    line-height: 1.6;
+    font-size: 1rem;
+    line-height: 1.5;
+    white-space: pre-line;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .article-header {
+    text-align: center;
+    margin-bottom: 2rem;
   }
   .article-image {
     width: 100%;
     height: auto;
     animation: scaleIn 2s ease-in-out;
   }
-  .article-header h2 {
+  .article-header h1 {
     font-family: "Jersey 10", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 2.5rem;
-    margin: 0;
+    margin: 0.5rem 0;
   }
   .article-header p {
     font-size: 0.9rem;
+    margin: 0.3rem 0;
   }
-
   .article-body {
-    border: 1px solid #999;
-    white-space: pre-line;
-    padding: 15px;
-    font-size: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    width: 100%;
   }
-
+  .article-comments {
+    width: 100%;
+    margin-top: 2rem;
+    align-self: flex-start;
+  }
+  .article-comments h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+  }
   .article-comment-grid {
-    width: 800px;
-    max-width: calc(100% - 2rem);
+    width: calc(100% - 2rem);
     padding: 1rem;
     display: flex;
     flex-direction: column;
     border: 1px solid #ccc;
-    border-radius: 5px;
     list-style-type: none;
   }
-
   @media (max-width: 768px) {
-    .article-header h2 {
-      font-size: 1.5rem;
+    main {
+      padding: 0.5rem;
+    }
+    .article-header h1 {
+      font-size: 1.8rem;
     }
     .article-body {
       font-size: 0.9rem;
-      padding: 10px;
+      padding: 0.8rem;
     }
-    .article-comment-grid {
-      padding: 10px;
+    .article-comments h2 {
+      font-size: 1.5rem;
     }
   }
   @media (max-width: 480px) {
-    .article-header h2 {
-      font-size: 1.2rem;
+    .article-header h1 {
+      font-size: 1.5rem;
     }
     .article-body {
       font-size: 0.8rem;
-      padding: 8px;
+      padding: 0.5rem;
     }
-    .article-comment-grid {
-      padding: 8px;
+    .article-comments h2 {
+      font-size: 1.2rem;
     }
   }
 </style>

@@ -5,21 +5,30 @@ import Pagination from "../../components/Pagination.astro";
 import type { Article, Page } from "../../../interfaces";
 
 export async function getStaticPaths({ paginate }: { paginate: Function }) {
-  const response = await fetch(import.meta.env.PUBLIC_API_URL + "articles");
-  const data = await response.json();
-  const articles: Article[] = data.data;
+  try {
+    const response = await fetch(import.meta.env.PUBLIC_API_URL + "articles");
+    if (!response.ok) {
+      throw new Error("Failed to fetch articles");
+    }
+    const data = await response.json();
+    const articles: Article[] = data.data;
 
-  return paginate(articles, {
-    pageSize: 9,
-  });
+    return paginate(articles, {
+      pageSize: 9,
+    });
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+    return { paths: [], fallback: false };
+  }
 }
+
 const { page }: { page: Page } = Astro.props;
 ---
 
 <Layout title="Feed">
   <main>
     <ul role="list" class="link-card-grid">
-      {page.data.map((article) => <Card article={article} />)}
+      {page.data.map((article: Article) => <Card article={article} />)}
     </ul>
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
   </main>
@@ -30,9 +39,9 @@ const { page }: { page: Page } = Astro.props;
     margin: auto;
     padding: 1rem;
     width: 100%;
-    max-width: 800px; /* Adjusted max-width */
+    max-width: 800px;
     color: white;
-    font-size: 20px;
+    font-size: 1rem;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -45,25 +54,22 @@ const { page }: { page: Page } = Astro.props;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     padding: 0;
-    justify-content: center;
+    list-style: none;
   }
 
-  /* small screens */
-  @media screen and (max-width: 600px) {
+  @media (max-width: 600px) {
     .link-card-grid {
       grid-template-columns: repeat(1, 1fr);
     }
   }
 
-  /* medium screens */
-  @media screen and (min-width: 601px) {
+  @media (min-width: 601px) and (max-width: 1199px) {
     .link-card-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
-  /* large screens */
-  @media screen and (min-width: 1200px) {
+  @media (min-width: 1200px) {
     .link-card-grid {
       grid-template-columns: repeat(3, 1fr);
     }
